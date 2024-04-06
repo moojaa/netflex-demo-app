@@ -21,7 +21,7 @@ const MovieCard = ({ movie }) => {
                 <div className='d-flex justify-content-between'>
                     <div className='movie-card-font'><FontAwesomeIcon icon={faImdb} className='me-1' />{movie.vote_average}</div>
                     <div className='movie-card-font'><FontAwesomeIcon icon={faUsers} className='me-1' />{Math.floor(movie.popularity)}</div>
-                    <div className='movie-card-font'>{movie.adult ? <div className='bg-danger rounded-circle adult-style'>18</div> : <div className='bg-warning rounded-circle text-black adult-style'>all</div>}</div>
+                    <div className='movie-card-font'>{movie.adult? <div className='bg-danger rounded-circle adult-style'>18</div> : <div className='bg-warning rounded-circle text-black adult-style'>all</div>}</div>
                 </div>
             </div>
         </div>

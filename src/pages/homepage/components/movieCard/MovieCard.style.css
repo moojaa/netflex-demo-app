@@ -12,6 +12,7 @@
 }
 
 .overlay{
+    padding: 1em;
     width: 100%;
     height: 100%;
     background: rgba(43,41,41,0.9);
@@ -20,8 +21,23 @@
     color: white;
     font-weight: bold;
     overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .overlay:hover{
     opacity: 1;
+}
+
+.movie-card-font{
+    font-size: .8rem;
+}
+
+.adult-style{
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

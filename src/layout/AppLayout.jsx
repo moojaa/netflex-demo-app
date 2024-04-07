@@ -11,12 +11,12 @@ const AppLayout = () => {
         <div>
             <Navbar expand="lg" className="bg-black" data-bs-theme="dark">
                 <Container fluid>
-                    <Navbar.Brand href="/">
+                    <Navbar.Brand href="/SUNFLEX.png">
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                            src="/img/SUNFLEX.png"
                             height="30"
                             className="d-inline-block align-top"
-                            alt="React Bootstrap logo"
+                            alt="SUNFLEX logo"
                         />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />

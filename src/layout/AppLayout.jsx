@@ -11,7 +11,7 @@ const AppLayout = () => {
         <div>
             <Navbar expand="lg" className="bg-black" data-bs-theme="dark">
                 <Container fluid>
-                    <Navbar.Brand href="/SUNFLEX.png">
+                    <Navbar.Brand href="/">
                         <img
                             src="/img/SUNFLEX.png"
                             height="30"

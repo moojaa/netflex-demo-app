@@ -36,7 +36,7 @@ const AppLayout = () => {
                             navbarScroll
                         >
                             <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="movies">movies</Nav.Link>
+                            <Nav.Link href="/movies">movies</Nav.Link>
                         </Nav>
                         <Form className="d-flex" onSubmit={searchByKeyword}>
                             <Form.Control

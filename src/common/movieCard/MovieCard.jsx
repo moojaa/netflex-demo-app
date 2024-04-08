@@ -4,8 +4,21 @@ import './MovieCard.style.css'
 import { faImdb } from '@fortawesome/free-brands-svg-icons';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 
 const MovieCard = ({ movie }) => {
+
+    const {data:genreData}= useMovieGenreQuery()
+
+    const showGenre=(genreIdList)=>{
+        if(!genreData)return []
+        const genreNameList= genreIdList.map((id)=>{
+            const genreObj= genreData.find((genre)=>genre.id === id)
+            return genreObj.name;
+        })
+        return genreNameList
+    }
+
     return (
         <div
             style={{ backgroundImage: "url(" + `https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` + ")" }}
@@ -14,7 +27,7 @@ const MovieCard = ({ movie }) => {
             <div className='overlay'>
                 <div>
                 <h3>{movie.title}</h3>
-                {movie.genre_ids.map((id) => (
+                {showGenre(movie.genre_ids).map((id) => (
                     <Badge bg="danger me-1">{id}</Badge>
                 ))}
                 </div>

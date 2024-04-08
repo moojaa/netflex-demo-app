@@ -1,0 +1,12 @@
+
+.active > *{
+    color: red !important;
+    background: #000 !important;
+}
+
+
+.page-link-style{
+
+    color: white;
+    background: white;
+}

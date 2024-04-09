@@ -1,0 +1,45 @@
+.detail-bg{
+    height: 56vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.detail-bg::before{
+    content: '';
+    background: linear-gradient(to top, black,transparent);
+    position: absolute;
+    left: 0;
+    height: 56vh;
+    width: 100%;
+}
+
+.bg-text-area{
+    width: 36%;
+    padding: 2rem;
+}
+
+.bg-text-area>*{
+    z-index: 2;
+}
+
+.adult-style{
+    width: 30px;
+    height: 30px;
+}
+
+.box-style{
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+@media(max-width:700px){
+    .bg-text-area{
+        width: 100%;
+        justify-content: end;
+    }
+}

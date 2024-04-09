@@ -28,3 +28,11 @@ export const useUpcomingMoviesQuery=()=>{
         select:(result)=>result.data,
     })
 }
+
+export const useDetailMoviesQuery=(id)=>{
+    return useQuery({
+        queryKey:['movie-details',id],
+        queryFn:()=>fetchMovies(id),
+        select:(result)=>result.data,
+    })
+}

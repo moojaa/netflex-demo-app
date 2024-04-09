@@ -11,7 +11,7 @@ const MovieCard = ({ movie }) => {
     const navigate = useNavigate()
 
     const goToDetailPage = (id) => {
-        navigate(`movies/${id}`)
+        navigate(`/movies/${id}`)
     }
 
     const { data: genreData } = useMovieGenreQuery()
@@ -34,8 +34,8 @@ const MovieCard = ({ movie }) => {
             <div className='overlay'>
                 <div>
                     <h3>{movie.title}</h3>
-                    {showGenre(movie.genre_ids).map((id) => (
-                        <Badge bg="danger me-1">{id}</Badge>
+                    {showGenre(movie.genre_ids).map((id,index) => (
+                        <Badge key={index} bg="danger me-1">{id}</Badge>
                     ))}
                 </div>
                 <div className='d-flex justify-content-between'>

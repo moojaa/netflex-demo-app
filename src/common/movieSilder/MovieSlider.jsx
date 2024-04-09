@@ -6,6 +6,14 @@ import 'react-multi-carousel/lib/styles.css';
 
 
 const MovieSlider = ({title,movies,responsive}) => {
+
+    if(movies.length===0){
+        return <div className='text-white px-5 py-2'>
+            <h3>{title}</h3>
+            <p>0 results</p>
+        </div>
+    }
+
     return (
         <div className='text-white px-5 py-2'>
             <h3>{title}</h3>

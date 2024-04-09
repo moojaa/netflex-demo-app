@@ -1,24 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDetailMoviesQuery } from '../../hooks/useMovies'
+import { useVideoMoviesQuery } from '../../hooks/useVideoMovies';
 import Alert from 'react-bootstrap/Alert';
 import { useParams } from 'react-router-dom'
-import { Container, Row, Col, Button, Badge } from 'react-bootstrap'
+import { Container, Row, Col, Button, Badge, Modal } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImdb } from '@fortawesome/free-brands-svg-icons';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
-import './MovieDetail.style.css'
+import { faUsers, faPlay } from '@fortawesome/free-solid-svg-icons';
 import RecommendSlider from './components/recommendSlider/RecommendSlider';
 import Reviews from './components/reviews/Reviews';
+import { Spinner } from 'react-bootstrap'
+import YouTube from 'react-youtube';
+import './MovieDetail.style.css'
+
 
 const MovieDetail = () => {
 
   let { id } = useParams()
+  const [showPaly, setShowPlay] = useState(false)
 
+  const handleClose = () => setShowPlay(false);
+  const handleShow = () => setShowPlay(true);
 
   const { data, isLoading, isError, error } = useDetailMoviesQuery(id)
 
+  const { data:videoKey} = useVideoMoviesQuery(id)
+
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <div className='d-flex justify-content-center align-items-center vh-100'><Spinner animation="border" variant="danger" /></div>
   }
   if (isError) {
     return <Alert variant='danger'>{error.message}</Alert>
@@ -34,7 +43,7 @@ const MovieDetail = () => {
         <div className='text-white d-flex flex-column justify-content-center align-items-start h-100 bg-text-area'>
           <h2>{data?.title}</h2>
           <p>{data?.overview}</p>
-          <Button variant="light" className='px-5 py-2'>재생</Button>
+          <Button onClick={handleShow} variant="light" className='px-5 py-2'><FontAwesomeIcon className='me-2' icon={faPlay} />재생</Button>
         </div>
       </div>
       <Container>
@@ -82,8 +91,22 @@ const MovieDetail = () => {
           </Col>
         </Row>
       </Container>
-      <RecommendSlider id={id}/>
-      <Reviews id={id}/>
+      <RecommendSlider id={id} />
+      <Reviews id={id} />
+      <Modal
+        size="lg"
+        show={showPaly}
+        onHide={handleClose}
+        keyboard={false}
+        centered
+        data-bs-theme="dark"
+      >
+        <Modal.Header className='bg-black' closeButton>
+        </Modal.Header>
+        <Modal.Body className='d-flex justify-content-center bg-black'>
+          <YouTube videoId={videoKey[0]?.key} />
+        </Modal.Body>
+      </Modal>
     </div>
   )
 }

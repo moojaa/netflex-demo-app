@@ -1,19 +1,20 @@
 import React from 'react'
 import { usePopularMoviesQuery } from '../../../../hooks/useMovies'
 import Alert from 'react-bootstrap/Alert';
+import {Spinner} from 'react-bootstrap'
 import "./Banner.style.css"
 
 const Banner = () => {
     const {data,isLoading,isError,error} = usePopularMoviesQuery()
     if(isLoading){
-        return<h1>loading</h1>
+        return<div className='d-flex justify-content-center align-items-center vh-100'><Spinner animation="border" variant="danger" /></div>
     }
     if(isError){
         return<Alert variant='danger'>{error.message}</Alert>
     }
   return (
     <div style={{
-      backgroundImage:"url("+`https://media.themoviedb.org/t/p/w1920_and_h800_bestv2${data?.results[0].backdrop_path}`+")"
+      backgroundImage:"url("+`https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${data?.results[0].poster_path}`+")"
     }}
     className='banner'
     >

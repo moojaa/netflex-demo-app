@@ -6,6 +6,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import MovieCard from '../../common/movieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css'
+import {Spinner} from 'react-bootstrap'
 
 const MoviePage = () => {
 
@@ -18,7 +19,7 @@ const MoviePage = () => {
   const { data, isLoading, isError, error } = useSearchMovieQuery(keyword,page)
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <div className='d-flex justify-content-center align-items-center vh-100'><Spinner animation="border" variant="danger" /></div>
   }
   if (isError) {
     return <Alert variant='danger'>{error.message}</Alert>

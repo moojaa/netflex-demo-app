@@ -88,7 +88,7 @@ const MoviePage = () => {
         </Col>
         <Col lg={8} xs={12}>
           <Row>
-            {sortedData.map((movie, index) => <Col key={index} lg={4} xs={6} className='d-flex justify-content-center p-1'>
+            {sortedData.length ===0 ?(<div className='text-white text-center'>일치하는 정보가 없습니다</div>): sortedData.map((movie, index) => <Col key={index} lg={4} xs={6} className='d-flex justify-content-center p-1'>
               <MovieCard movie={movie} />
             </Col>)}
           </Row>

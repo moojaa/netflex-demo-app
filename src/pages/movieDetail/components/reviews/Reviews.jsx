@@ -2,7 +2,7 @@ import React from 'react';
 import { useReviewsMoviesQuery } from '../../../../hooks/useReviewsMovies'
 import Alert from 'react-bootstrap/Alert';
 import ReviewBox from './components/ReviewBox';
-import {Spinner} from 'react-bootstrap'
+import { Spinner } from 'react-bootstrap'
 
 const Reviews = ({ id }) => {
 
@@ -15,10 +15,17 @@ const Reviews = ({ id }) => {
         return <Alert variant='danger'>{error.message}</Alert>
     }
 
+    if (data.results.length === 0) {
+        return <div className='text-white px-5 py-2'>
+            <h3>Reviews</h3>
+            <p>0 Reviews</p>
+        </div>
+    }
+
     return (
         <div className='text-white px-5 py-2'>
-        <h3>Reviews</h3>
-            {data.results.map((item,index)=><ReviewBox data={item} key={index}/>)}
+            <h3>Reviews</h3>
+            {data.results?.map((item, index) => <ReviewBox data={item} key={index} />)}
         </div>
     )
 }

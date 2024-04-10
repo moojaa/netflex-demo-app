@@ -34,7 +34,7 @@ const MoviePage = () => {
         </Col>
         <Col lg={8} xs={12}>
           <Row>
-            {data?.results.map((movie, index) => <Col key={index} lg={4} xs={12} className='d-flex justify-content-center'>
+            {data?.results.map((movie, index) => <Col key={index} lg={4} xs={6} className='d-flex justify-content-center p-1'>
               <MovieCard movie={movie} />
             </Col>)}
           </Row>

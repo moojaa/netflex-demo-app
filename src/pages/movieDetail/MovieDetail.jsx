@@ -24,7 +24,7 @@ const MovieDetail = () => {
 
   const { data, isLoading, isError, error } = useDetailMoviesQuery(id)
 
-  const { data:videoKey} = useVideoMoviesQuery(id)
+  const { data: videoKey } = useVideoMoviesQuery(id)
 
   if (isLoading) {
     return <div className='d-flex justify-content-center align-items-center vh-100'><Spinner animation="border" variant="danger" /></div>
@@ -62,7 +62,7 @@ const MovieDetail = () => {
               <div className='d-flex align-items-center'>
                 <h3 className='me-4'><FontAwesomeIcon icon={faImdb} className='me-2' />{data?.vote_average}</h3>
                 <h3 className='me-4'><FontAwesomeIcon icon={faUsers} className='me-2 text-warning' />{data?.popularity}</h3>
-                <p className='p-0 m-0'>{data.adult ? <div className='bg-danger rounded-circle adult-style'>18</div> : <div className='bg-warning rounded-circle text-black adult-style'>ALL</div>}</p>
+                <div className='p-0 m-0'>{data.adult ? <div className='bg-danger rounded-circle adult-style'>18</div> : <div className='bg-warning rounded-circle text-black adult-style'>ALL</div>}</div>
               </div>
               <div className='border-top border-bottom'>
                 <h4 className='py-2'>
@@ -104,7 +104,7 @@ const MovieDetail = () => {
         <Modal.Header className='bg-black' closeButton>
         </Modal.Header>
         <Modal.Body className='d-flex justify-content-center bg-black'>
-          <YouTube videoId={videoKey[0]?.key} />
+          {videoKey?.length > 0 && <YouTube videoId={videoKey[0].key} />}
         </Modal.Body>
       </Modal>
     </div>

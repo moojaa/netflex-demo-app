@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSearchMovieQuery } from '../../hooks/useSearchMovies'
 import { useSearchParams } from 'react-router-dom'
 import Alert from 'react-bootstrap/Alert';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col ,Button } from 'react-bootstrap'
 import MovieCard from '../../common/movieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import './MoviePage.style.css'
@@ -28,7 +28,9 @@ const MoviePage = () => {
     <Container>
       <Row>
         <Col lg={4} xs={12}>
-          필터
+          <Button variant='danger' className='w-100'>정렬</Button>
+
+          <Button>장르</Button>
         </Col>
         <Col lg={8} xs={12}>
           <Row>

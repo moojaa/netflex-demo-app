@@ -3,9 +3,9 @@
     height: 440px;
 }
 
-@media(max-width:400px){
+@media(max-width:464px){
     .carousel-container{
-        height: 330px;
+        height: 230px;
         display: flex;
         justify-content: space-between;
     }

@@ -42,3 +42,9 @@
     justify-content: center;
     align-items: center;
 }
+
+@media(max-width:464px){
+    .movie-card{
+        width: 132px;
+        height: 200px;}
+}

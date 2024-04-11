@@ -23,7 +23,7 @@ const Reviews = ({ id }) => {
     }
 
     return (
-        <div className='text-white px-5 py-2'>
+        <div className='text-white container-fluid py-2'>
             <h3>Reviews</h3>
             {data.results?.map((item, index) => <ReviewBox data={item} key={index} />)}
         </div>

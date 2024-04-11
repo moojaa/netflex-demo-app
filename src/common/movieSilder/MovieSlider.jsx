@@ -15,7 +15,7 @@ const MovieSlider = ({title,movies,responsive}) => {
     }
 
     return (
-        <div className='text-white px-5 py-2'>
+        <div className='text-white container-fluid py-2'>
             <h3>{title}</h3>
             <Carousel
                 responsive={responsive}
